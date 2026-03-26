@@ -1,0 +1,45 @@
+[package]
+name = "celestial-ui"
+version = "0.6.6"
+description = "Best UI for Mac executors."
+authors = ["Saba"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "celestial_ui_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", default-features = false, features = ["wry", "compression", "macos-private-api", "tray-icon", "image-png"] }
+tauri-plugin-fs = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+dirs = "5"
+tauri-plugin-clipboard-manager = "2"
+keyring = { version = "2", default-features = false, features = ["platform-macos"] }
+reqwest = { version = "0.11", default-features = false, features = ["json", "native-tls"] }
+regex = "1"
+base64 = "0.22"
+chrono = { version = "0.4", features = ["serde"] }
+discord-rich-presence = "1.1"
+flate2 = "1"
+rusqlite = "0.33"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+block2 = "0.6.2"
+objc2-app-kit = { version = "0.3.2", features = ["NSEvent", "block2"] }
+objc2-foundation = { version = "0.3.2", features = ["NSString", "NSUserDefaults"] }
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
+panic = "abort"

@@ -1,0 +1,151 @@
+.ui-input {
+  height: 36px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0.8rem;
+  border: 1px solid var(--border-secondary);
+  background-color: var(--bg-input);
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--text-primary);
+  outline: none;
+  font-family: "Inter", sans-serif;
+  caret-color: var(--text-primary);
+}
+
+.ui-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ui-input::placeholder {
+  color: var(--text-placeholder);
+}
+
+.ui-label {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text-secondary);
+  user-select: none;
+  width: fit-content;
+}
+
+.ui-grid-gap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ui-checkbox-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid var(--border-secondary);
+  background-color: var(--bg-input);
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ui-checkbox.checked {
+  background-color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.ui-checkbox.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ui-checkbox-icon {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  color: var(--bg-panel);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.ui-checkbox-icon.checked {
+  opacity: 1;
+}
+
+.ui-field {
+  display: flex;
+  gap: 8px;
+}
+
+.ui-field-horizontal {
+  flex-direction: row;
+  align-items: center;
+}
+
+.ui-field-vertical {
+  flex-direction: column;
+}
+
+.ui-field-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.ui-field-description {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.ui-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ui-field-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  cursor: pointer;
+  user-select: none;
+  width: fit-content;
+}
+
+.ui-field-legend {
+  font-size: 14px;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  padding: 0;
+}
+
+.ui-field-legend-label {
+  font-weight: 500;
+}
+
+.ui-field-separator {
+  border: none;
+  border-top: 1px solid var(--border-secondary);
+  margin: 8px 0;
+}
+
+.ui-field-set {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}

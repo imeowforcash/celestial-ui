@@ -1,0 +1,20 @@
+.btn {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  background-color: var(--bg-secondary);
+  border: none;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover,
+.btn.active {
+  color: var(--sidebar-active-icon-color);
+  background-color: var(--sidebar-active-bg);
+}

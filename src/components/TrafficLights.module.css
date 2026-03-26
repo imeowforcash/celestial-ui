@@ -1,0 +1,88 @@
+.lights {
+  display: flex;
+  gap: 6px;
+  z-index: 3;
+}
+
+.light {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.close,
+.minimize,
+.maximize {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close {
+  background-color: var(--tl-close-bg);
+  border: 1px solid var(--tl-close-border);
+}
+
+.close .icon {
+  width: 8px;
+  height: 8px;
+  opacity: 0;
+}
+
+.close:hover {
+  background-color: var(--tl-close-bg);
+}
+
+.close:hover .icon {
+  opacity: 1;
+}
+
+.minimize {
+  background-color: var(--tl-minimize-bg);
+  border: 1px solid var(--tl-minimize-border);
+}
+
+.minimize .icon {
+  width: 8.5px;
+  height: 8.5px;
+  opacity: 0;
+}
+
+.minimize:hover {
+  background-color: var(--tl-minimize-bg);
+}
+
+.minimize:hover .icon {
+  opacity: 1;
+}
+
+.maximize {
+  background-color: var(--tl-maximize-bg);
+  border: 1px solid var(--tl-maximize-border);
+}
+
+.maximize .icon {
+  width: 6.5px;
+  height: 6.5px;
+  opacity: 0;
+}
+
+.maximize:hover {
+  background-color: var(--tl-maximize-bg);
+}
+
+.maximize:hover .icon {
+  opacity: 1;
+}
+
+.unfocused .light {
+  background-color: var(--bg-panel) !important;
+  border-color: var(--border-primary) !important;
+}
+
+.unfocused .icon {
+  display: none !important;
+}
