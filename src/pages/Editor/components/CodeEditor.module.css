@@ -1,0 +1,460 @@
+.editor-container {
+  height: 100%;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-primary);
+  border-radius: 1.25rem;
+  box-sizing: border-box;
+  flex: 1;
+  position: relative;
+}
+
+.execute-button,
+.accounts-toggle-button,
+.roblox-button,
+.history-toggle-button {
+  position: absolute;
+  bottom: 6px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--bg-secondary);
+  border: none;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color 0.2s ease, background-color 0.2s ease;
+  z-index: 10;
+}
+
+.execute-button {
+  right: 6px;
+}
+
+.accounts-toggle-button {
+  right: 62px;
+}
+
+.roblox-button {
+  right: 118px;
+}
+
+.history-toggle-button {
+  right: 174px;
+}
+
+.execute-button:hover,
+.execute-button:active {
+  color: var(--interactive-accent-color);
+  background-color: var(--bg-hover);
+}
+
+.accounts-toggle-button:hover,
+.accounts-toggle-button.active,
+.roblox-button:hover,
+.history-toggle-button:hover,
+.history-toggle-button.active {
+  color: var(--editor-chrome-active-color);
+  background-color: var(--bg-hover);
+}
+
+.context-menu {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-secondary);
+  border-radius: 1.25rem;
+  padding: 8px;
+  min-width: 130px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.context-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  color: var(--text-tertiary);
+  font-size: 13px;
+  font-family: var(--ui-font-family), sans-serif;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  text-align: left;
+}
+
+.context-menu-item:hover {
+  background: transparent;
+  color: var(--interactive-accent-color);
+}
+
+.context-menu-item:disabled {
+  cursor: not-allowed;
+  color: var(--text-unfocused);
+}
+
+.context-menu-item:disabled:hover {
+  color: var(--text-unfocused);
+}
+
+.context-menu-item svg {
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.editor-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-family: var(--ui-font-family), sans-serif;
+  color: var(--text-tertiary);
+  background: transparent;
+  user-select: none;
+}
+
+.editor-breadcrumb-path {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.editor-breadcrumb-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.editor-action-icon-button {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color 0.15s ease;
+}
+
+.editor-action-icon-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.editor-action-icon-button:hover,
+.editor-action-icon-button.active {
+  color: var(--editor-chrome-active-color);
+}
+
+.editor-breadcrumb-separator {
+  color: var(--text-unfocused);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.editor-breadcrumb-separator svg {
+  width: 14px;
+  height: 14px;
+}
+
+.editor-breadcrumb-item {
+  color: var(--text-tertiary);
+  transition: color 0.15s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+.editor-breadcrumb-item.file {
+  color: var(--text-tertiary);
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.editor-unfocused :global(.monaco-editor .view-overlays .current-line) {
+  border: none !important;
+  background: transparent !important;
+}
+
+.editor-unfocused :global(.monaco-editor .margin-view-overlays .current-line-margin) {
+  background-color: transparent !important;
+}
+
+.editor-unfocused :global(.monaco-editor .line-numbers.active-line-number) {
+  color: var(--text-tertiary) !important;
+}
+
+.editor-has-selection :global(.monaco-editor .view-overlays .current-line) {
+  border: none !important;
+  background: transparent !important;
+}
+
+.editor-has-selection :global(.monaco-editor .margin-view-overlays .current-line-margin) {
+  background-color: transparent !important;
+}
+
+.editor-shell :global(.monaco-editor),
+.editor-shell :global(.monaco-editor .monaco-editor-background),
+.editor-shell :global(.monaco-editor .margin) {
+  background: var(--bg-panel) !important;
+}
+
+.editor-shell :global(.monaco-editor .scrollbar.horizontal) {
+  display: none !important;
+  height: 0 !important;
+}
+
+.editor-shell :global(.monaco-editor .scrollbar.vertical) {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.editor-shell:global(.monaco-scrollbar-active) :global(.monaco-editor .scrollbar.vertical),
+.editor-shell :global(.monaco-editor.monaco-scrollbar-active .scrollbar.vertical),
+.editor-shell :global(.monaco-editor .scrollbar.vertical:hover) {
+  opacity: 1;
+}
+
+.editor-shell:global(.monaco-scrollbar-disabled) :global(.monaco-editor .scrollbar.vertical),
+.editor-shell:global(.monaco-scrollbar-disabled) :global(.monaco-editor.monaco-scrollbar-active .scrollbar.vertical),
+.editor-shell:global(.monaco-scrollbar-disabled) :global(.monaco-editor .scrollbar.vertical:hover) {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.editor-shell :global(.monaco-editor .scrollbar.vertical > .slider) {
+  border-radius: 5px;
+}
+
+.editor-shell :global(.monaco-editor .monaco-scrollable-element) {
+  overscroll-behavior-y: none;
+}
+
+.editor-shell :global(.monaco-editor .scroll-decoration) {
+  box-shadow: none !important;
+  top: 0 !important;
+}
+
+.editor-shell :global(.monaco-editor .margin),
+.editor-shell :global(.monaco-editor .margin-view-overlays),
+.editor-shell :global(.monaco-editor .line-numbers) {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.editor-shell :global(.monaco-editor .suggest-widget) {
+  background: var(--bg-panel) !important;
+  border: 1px solid var(--border-secondary) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  overflow: hidden !important;
+}
+
+.editor-shell :global(.monaco-editor .suggest-widget .monaco-list-row) {
+  color: var(--text-primary) !important;
+}
+
+.editor-shell :global(.monaco-editor .suggest-widget .monaco-list-row.focused) {
+  background: var(--bg-secondary) !important;
+}
+
+.editor-shell :global(.monaco-editor .suggest-widget .monaco-list-row:hover) {
+  background: var(--bg-secondary) !important;
+}
+
+.editor-shell :global(.monaco-editor .suggest-widget .monaco-highlighted-label .highlight) {
+  color: var(--editor-highlight-color) !important;
+  font-weight: 500 !important;
+}
+
+.editor-shell :global(.monaco-editor .suggest-widget .details-label) {
+  color: var(--text-tertiary) !important;
+}
+
+.editor-shell :global(.monaco-editor .monaco-hover) {
+  background: var(--bg-panel) !important;
+  border: 1px solid var(--border-secondary) !important;
+  border-radius: 12px !important;
+  color: var(--text-secondary) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+.editor-shell :global(.monaco-editor .detected-link),
+.editor-shell :global(.monaco-editor .detected-link-active),
+.editor-shell :global(.monaco-editor .goto-definition-link) {
+  text-decoration: none !important;
+}
+
+.editor-shell :global(.monaco-editor .monaco-resizable-hover[widgetid="editor.contrib.resizableContentHoverWidget"]) {
+  width: auto !important;
+  height: auto !important;
+  border: none !important;
+  border-radius: 12px !important;
+}
+
+.editor-shell :global(.monaco-editor .monaco-resizable-hover[widgetid="editor.contrib.resizableContentHoverWidget"] > .monaco-hover),
+.editor-shell :global(.monaco-editor .monaco-resizable-hover[widgetid="editor.contrib.resizableContentHoverWidget"] .monaco-scrollable-element),
+.editor-shell :global(.monaco-editor .monaco-resizable-hover[widgetid="editor.contrib.resizableContentHoverWidget"] .monaco-hover-content) {
+  width: auto !important;
+  height: auto !important;
+}
+
+.editor-shell :global(.monaco-editor .monaco-hover .hover-row:not(:first-child):not(:empty)) {
+  border-top: none !important;
+}
+
+.editor-shell :global(.monaco-editor .monaco-hover .hover-row.status-bar .actions) {
+  background: transparent !important;
+}
+
+:global(.context-view.monaco-component .monaco-hover.workbench-hover.compact) {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget) {
+  background: var(--bg-panel) !important;
+  border: 1px solid var(--border-secondary) !important;
+  border-radius: 14px !important;
+  color: var(--text-primary) !important;
+  box-shadow: none !important;
+  padding: 6px 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  overflow: visible !important;
+  top: 0 !important;
+  right: 10px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget .monaco-sash),
+.editor-shell :global(.monaco-editor .find-widget .button.toggle),
+.editor-shell :global(.monaco-editor .find-widget .replace-part),
+.editor-shell :global(.monaco-editor .find-widget .button[title*="Find in Selection" i]),
+.editor-shell :global(.monaco-editor .find-widget .button[class*="find-in-selection"]),
+.editor-shell :global(.monaco-editor .find-widget .button[class*="findInSelection"]),
+.editor-shell :global(.monaco-editor .find-widget .monaco-findInput .monaco-custom-toggle.codicon-find-selection),
+.editor-shell :global(.monaco-editor .find-widget .monaco-findInput .monaco-custom-toggle[aria-label*="Find in Selection" i]),
+.editor-shell :global(.monaco-editor .find-widget .button.close-fw),
+.editor-shell :global(.monaco-editor .find-widget .button.codicon-widget-close),
+.editor-shell :global(.monaco-editor .find-widget > .button.codicon-widget-close) {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget > .find-part) {
+  margin: 0 !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget > .find-part .monaco-inputbox) {
+  min-height: 22px !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget > .find-part .monaco-inputbox > .ibwrapper > .input),
+.editor-shell :global(.monaco-editor .find-widget > .find-part .monaco-inputbox > .ibwrapper > .mirror) {
+  padding: 1px 4px 0 !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget > .find-part .find-actions),
+.editor-shell :global(.monaco-editor .find-widget .matchesCount) {
+  height: 22px !important;
+  line-height: 20px !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget .monaco-inputbox) {
+  color: var(--text-primary) !important;
+  background: var(--bg-input, var(--bg-secondary)) !important;
+  border: 1px solid var(--border-secondary) !important;
+  border-radius: 0.6rem !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget .monaco-inputbox.synthetic-focus) {
+  border-color: var(--border-resize-hover) !important;
+  outline: none !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget .monaco-inputbox > .ibwrapper > .input),
+.editor-shell :global(.monaco-editor .find-widget .monaco-inputbox > .ibwrapper > textarea) {
+  color: var(--text-primary) !important;
+  font-family: var(--editor-font-family), monospace !important;
+  font-size: var(--editor-font-size) !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget .monaco-inputbox > .ibwrapper > .input::placeholder),
+.editor-shell :global(.monaco-editor .find-widget .monaco-inputbox > .ibwrapper > textarea::placeholder) {
+  color: var(--text-placeholder) !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget .matchesCount) {
+  color: var(--text-tertiary) !important;
+  font-family: var(--ui-font-family), sans-serif !important;
+  font-size: 12px !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget .button) {
+  color: var(--text-secondary) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  transition: color 0.15s ease !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget .button:hover),
+.editor-shell :global(.monaco-editor .find-widget .button.checked),
+.editor-shell :global(.monaco-editor .find-widget .monaco-findInput .monaco-custom-toggle:hover),
+.editor-shell :global(.monaco-editor .find-widget .monaco-findInput .monaco-custom-toggle.checked) {
+  color: var(--text-primary) !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget .monaco-findInput .monaco-custom-toggle) {
+  color: var(--text-secondary) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget .monaco-inputbox.no-results) {
+  border-color: #ff5f5f !important;
+}
+
+.editor-shell :global(.monaco-editor .find-widget *:focus) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.editor-shell:has(:global(.monaco-editor .find-widget.visible)) :global(.monaco-editor .view-overlays .current-line) {
+  border: none !important;
+  background: transparent !important;
+}
+
+.editor-shell:has(:global(.monaco-editor .find-widget.visible)) :global(.monaco-editor .margin-view-overlays .current-line-margin) {
+  background-color: transparent !important;
+}

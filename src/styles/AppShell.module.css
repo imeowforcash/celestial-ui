@@ -1,0 +1,145 @@
+.noselect {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-loading {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.app-bg {
+  position: absolute;
+  background-color: var(--bg-app);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 1.5625rem;
+  overflow: hidden;
+}
+
+.app-bg[data-liquid-glass="true"] {
+  box-sizing: border-box;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+.app-bg[data-fullscreen="true"] {
+  border-radius: 0;
+}
+
+.app-bg[data-fullscreen="true"] .main-layout {
+  padding-top: 12px;
+}
+
+.main-layout {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  padding-top: 32px;
+  box-sizing: border-box;
+  min-width: 0;
+  transition: padding 0.24s ease;
+}
+
+.app-container[data-tight-spacing="true"] .main-layout {
+  padding: 8px;
+  padding-top: 33px;
+  padding-bottom: 10px;
+}
+
+.app-container[data-tight-spacing="true"] .app-bg[data-fullscreen="true"] .main-layout {
+  padding-top: 8px;
+}
+
+.sidebar {
+  width: 60px;
+  height: 100%;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-primary);
+  border-radius: 1.25rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+  padding: 5px 4px;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.titlebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+  transition: top 0.24s ease, padding-left 0.24s ease;
+}
+
+.app-container[data-tight-spacing="true"] .titlebar {
+  top: 1px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.standalone-console-titlebar {
+  -webkit-app-region: drag;
+}
+
+.standalone-console-titlebar * {
+  -webkit-app-region: no-drag;
+}
+
+.traffic-lights-wrapper {
+  -webkit-app-region: no-drag;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+
+.titlebar-separator {
+  position: absolute;
+  left: 78px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 14px;
+  background-color: var(--tl-separator);
+  border-radius: 2px;
+  pointer-events: none;
+  transition: left 0.24s ease;
+}
+
+.app-container[data-tight-spacing="true"] .titlebar-separator {
+  left: 73px;
+}
+
+.app-title {
+  color: var(--text-secondary);
+  margin-left: 16px;
+  font-weight: 800;
+  font-size: 14px;
+  font-family: var(--ui-font-family), sans-serif;
+  transition: margin-left 0.24s ease;
+}
+
+.app-container[data-tight-spacing="true"] .app-title {
+  margin-left: 10px;
+}
