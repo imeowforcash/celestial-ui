@@ -1,0 +1,37 @@
+.ui-grid-gap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ui-field {
+  display: flex;
+  gap: 8px;
+}
+
+.ui-field-horizontal {
+  flex-direction: row;
+  align-items: center;
+}
+
+.ui-field-vertical {
+  flex-direction: column;
+}
+
+.ui-field-description {
+  font-size: calc(var(--ui-font-size) * 0.8125);
+  color: var(--text-tertiary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.ui-field-label {
+  font-size: calc(var(--ui-font-size) * 0.875);
+  font-weight: 400;
+  color: var(--text-primary);
+  cursor: pointer;
+  user-select: none;
+  width: fit-content;
+}

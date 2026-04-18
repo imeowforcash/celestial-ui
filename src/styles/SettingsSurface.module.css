@@ -1,0 +1,134 @@
+.main {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-primary);
+  border-radius: 1.25rem;
+  box-sizing: border-box;
+  padding: 10px 10px 0 10px;
+  padding-top: 15px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.main-no-top-padding {
+  padding-top: 0;
+}
+
+.main::-webkit-scrollbar {
+  display: none;
+}
+
+.head {
+  color: var(--text-header);
+  font-size: calc(var(--ui-font-size) * 1.25);
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  font-family: var(--ui-font-family), sans-serif;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.group-spaced {
+  margin-top: 12px;
+}
+
+.section-divider {
+  height: 1px;
+  background: var(--border-secondary);
+  margin-top: 24px;
+}
+
+.section-head {
+  margin-top: 16px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  font-size: calc(var(--ui-font-size) * 0.9375);
+  font-weight: 600;
+}
+
+.row-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.keybind-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.keybind-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.keybind-label {
+  font-size: calc(var(--ui-font-size) * 0.875);
+  color: var(--text-secondary);
+}
+
+.label {
+  color: var(--text-secondary);
+  font-size: calc(var(--ui-font-size) * 0.8125);
+  font-weight: 500;
+}
+
+.key-btn,
+.key-static {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  min-height: 24px;
+  box-sizing: border-box;
+  padding: 0 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border-secondary);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: calc(var(--ui-font-size) * 0.75);
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.key-btn {
+  cursor: pointer;
+  transition: width 0.2s ease, color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.recording {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.key-measure {
+  position: fixed;
+  top: -6767px;
+  left: -6767px;
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: calc(var(--ui-font-size) * 0.75);
+  font-weight: 400;
+  line-height: 1;
+}
+
+@media (max-width: 720px) {
+  .key-btn,
+  .key-static {
+    padding: 0 6px;
+  }
+}

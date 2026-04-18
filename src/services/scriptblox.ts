@@ -1,0 +1,85 @@
+
+import { invoke } from "@tauri-apps/api/core";
+
+interface ScriptBloxGame {
+  _id: string;
+  name: string;
+  imageUrl: string;
+}
+
+export interface ScriptBloxScript {
+  _id: string;
+  title: string;
+  game: ScriptBloxGame;
+  slug: string;
+  verified: boolean;
+  key: boolean;
+  views: number;
+  scriptType: string;
+  isPatched: boolean;
+  isUniversal: boolean;
+  createdAt: string;
+  updatedAt?: string;
+  image: string;
+  script?: string;
+  likeCount?: number;
+  dislikeCount?: number;
+}
+
+interface ScriptBloxSearchResponse {
+  result: {
+    totalPages: number;
+    scripts: ScriptBloxScript[];
+  };
+}
+
+interface ScriptBloxParams {
+  page?: number;
+  max?: number;
+  q?: string;
+  mode?: 'free' | 'paid';
+  patched?: number;
+  key?: number;
+  universal?: number;
+  verified?: number;
+  sortBy?: 'views' | 'likeCount' | 'createdAt' | 'updatedAt' | 'dislikeCount' | 'accuracy';
+  order?: 'asc' | 'desc';
+}
+
+const BASE_URL = "https://scriptblox.com/api";
+
+export const searchScriptBloxScripts = async (params: ScriptBloxParams = {}): Promise<ScriptBloxSearchResponse> => {
+  const searchParams = new URLSearchParams();
+  if (params.q) searchParams.append("q", params.q);
+  if (params.page) searchParams.append("page", params.page.toString());
+  if (params.max) searchParams.append("max", params.max.toString());
+  if (params.mode) searchParams.append("mode", params.mode);
+  if (params.patched !== undefined) searchParams.append("patched", params.patched.toString());
+  if (params.key !== undefined) searchParams.append("key", params.key.toString());
+  if (params.universal !== undefined) searchParams.append("universal", params.universal.toString());
+  if (params.verified !== undefined) searchParams.append("verified", params.verified.toString());
+  if (params.sortBy) searchParams.append("sortBy", params.sortBy);
+  if (params.order) searchParams.append("order", params.order);
+
+  const response = await fetch(`${BASE_URL}/script/search?${searchParams.toString()}`);
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+  return response.json();
+};
+
+export const getScriptBloxRaw = async (id: string): Promise<string> => {
+  const text = await invoke<string>("download_script", { 
+    url: `${BASE_URL}/script/raw/${id}` 
+  });
+  
+  try {
+    const json = JSON.parse(text);
+    if (typeof json === "object" && json !== null && "script" in json && typeof json.script === "string") {
+      return json.script;
+    }
+    return text;
+  } catch {
+    return text;
+  }
+};

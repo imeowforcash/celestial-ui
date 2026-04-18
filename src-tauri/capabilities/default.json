@@ -1,0 +1,168 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "core:window:allow-start-dragging",
+    "core:event:allow-emit",
+    "core:event:allow-listen",
+    "core:event:allow-unlisten",
+    "fs:default",
+    {
+      "identifier": "fs:allow-app-read-recursive",
+      "allow": [
+        {
+          "path": "$APPDATA/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-app-write-recursive",
+      "allow": [
+        {
+          "path": "$APPDATA/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-read-dir",
+      "allow": [
+        {
+          "path": "$DOCUMENT/Celestial"
+        },
+        {
+          "path": "$DOCUMENT/Celestial/**"
+        },
+        {
+          "path": "$HOME/Hydrogen/autoexecute"
+        },
+        {
+          "path": "$HOME/Hydrogen/autoexecute/**"
+        },
+        {
+          "path": "$HOME/Opiumware/autoexec"
+        },
+        {
+          "path": "$HOME/Opiumware/autoexec/**"
+        },
+        {
+          "path": "$HOME/Documents/Macsploit Automatic Execution"
+        },
+        {
+          "path": "$HOME/Documents/Macsploit Automatic Execution/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-read-text-file",
+      "allow": [
+        {
+          "path": "$DOCUMENT/Celestial/**"
+        },
+        {
+          "path": "$HOME/Hydrogen/autoexecute/**"
+        },
+        {
+          "path": "$HOME/Opiumware/autoexec/**"
+        },
+        {
+          "path": "$HOME/Documents/Macsploit Automatic Execution/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-write-text-file",
+      "allow": [
+        {
+          "path": "$DOCUMENT/Celestial/**"
+        },
+        {
+          "path": "$HOME/Hydrogen/autoexecute/**"
+        },
+        {
+          "path": "$HOME/Opiumware/autoexec/**"
+        },
+        {
+          "path": "$HOME/Documents/Macsploit Automatic Execution/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-rename",
+      "allow": [
+        {
+          "path": "$DOCUMENT/Celestial/**"
+        },
+        {
+          "path": "$HOME/Hydrogen/autoexecute/**"
+        },
+        {
+          "path": "$HOME/Opiumware/autoexec/**"
+        },
+        {
+          "path": "$HOME/Documents/Macsploit Automatic Execution/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-remove",
+      "allow": [
+        {
+          "path": "$DOCUMENT/Celestial/**"
+        },
+        {
+          "path": "$HOME/Hydrogen/autoexecute/**"
+        },
+        {
+          "path": "$HOME/Opiumware/autoexec/**"
+        },
+        {
+          "path": "$HOME/Documents/Macsploit Automatic Execution/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-mkdir",
+      "allow": [
+        {
+          "path": "$DOCUMENT/Celestial/**"
+        },
+        {
+          "path": "$HOME/Opiumware/autoexec"
+        },
+        {
+          "path": "$HOME/Opiumware/autoexec/**"
+        },
+        {
+          "path": "$HOME/Documents/Macsploit Automatic Execution"
+        },
+        {
+          "path": "$HOME/Documents/Macsploit Automatic Execution/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-exists",
+      "allow": [
+        {
+          "path": "$DOCUMENT/Celestial/**"
+        },
+        {
+          "path": "$HOME/Hydrogen/autoexecute/**"
+        },
+        {
+          "path": "$HOME/Opiumware/autoexec/**"
+        },
+        {
+          "path": "$HOME/Documents/Macsploit Automatic Execution/**"
+        }
+      ]
+    },
+    "clipboard-manager:allow-read-text",
+    "clipboard-manager:allow-write-text"
+  ]
+}

@@ -1,0 +1,8 @@
+.ui-label {
+  font-size: calc(var(--ui-font-size) * 0.8125);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text-secondary);
+  user-select: none;
+  width: fit-content;
+}

@@ -1,0 +1,10 @@
+.toast {
+  font-family: var(--ui-font-family), sans-serif !important;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.description {
+  user-select: none;
+  -webkit-user-select: none;
+}
